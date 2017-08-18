@@ -16,6 +16,8 @@ sentry_web:
     - SENTRY_SERVER_EMAIL=${SENTRY_SERVER_EMAIL}
     - SENTRY_EMAIL_USER=${SENTRY_EMAIL_USER}
     - SENTRY_SECRET_KEY=${SENTRY_SECRET_KEY}
+  volumes:
+    - ${SENTRY_FILE_DIR}:/var/lib/sentry/files:rw
   links:
     - sentry_redis:redis
     - sentry_postgres:postgres
