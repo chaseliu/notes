@@ -12,10 +12,13 @@ sentry_postgres:
 sentry_web:
   image: sentry:latest
   environment:
+    - SENTRY_SECRET_KEY=${SENTRY_SECRET_KEY}
     - SENTRY_EMAIL_HOST=${SENTRY_EMAIL_HOST}
     - SENTRY_SERVER_EMAIL=${SENTRY_SERVER_EMAIL}
     - SENTRY_EMAIL_USER=${SENTRY_EMAIL_USER}
-    - SENTRY_SECRET_KEY=${SENTRY_SECRET_KEY}
+    - SENTRY_EMAIL_PASSWORD=${SENTRY_EMAIL_PASSWORD}
+  volumes:
+    - ${SENTRY_FILE_DIR}:/var/lib/sentry/files:rw
   links:
     - sentry_redis:redis
     - sentry_postgres:postgres
@@ -38,7 +41,7 @@ sentry_worker:
     - SENTRY_EMAIL_HOST=${SENTRY_EMAIL_HOST}
     - SENTRY_SERVER_EMAIL=${SENTRY_SERVER_EMAIL}
     - SENTRY_EMAIL_USER=${SENTRY_EMAIL_USER}
-    - SENTRY_SECRET_KEY=${SENTRY_SECRET_KEY}
+    - SENTRY_EMAIL_PASSWORD=${SENTRY_EMAIL_PASSWORD}
   links:
     - sentry_redis:redis
     - sentry_postgres:postgres
