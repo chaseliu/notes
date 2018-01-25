@@ -97,7 +97,10 @@ cd
 mkdir .pip
 vim .pip/pip.conf
 
-
+# add the following config
+[global]
+index-url = https://mirrors.ustc.edu.cn/pypi/web/simple
+format = columns
 ```
 
 ### Nodejs
