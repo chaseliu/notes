@@ -116,3 +116,22 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 cnpm install -g pm2
 sudo env PATH=$PATH:/home/jk/.nvm/versions/node/v8.9.3/bin /home/jk/.nvm/versions/node/v8.9.3/lib/node_modules/pm2/bin/pm2 startup systemd -u jk --hp /home/jk
 ```
+
+### ODBC Driver
+
+[reference](https://github.com/mkleehammer/pyodbc/wiki/Connecting-to-SQL-Server-from-RHEL-6-or-Centos-7)
+
+```bash
+sudo su
+curl https://packages.microsoft.com/config/rhel/6/prod.repo > /etc/yum.repos.d/mssql-release.repo
+exit
+sudo yum remove unixODBC-utf16 unixODBC-utf16-devel
+sudo ACCEPT_EULA=Y yum install msodbcsql
+```
+
+### ZeroMQ
+
+```bash
+sudo yum -y install zeromq
+sudo yum -y install zeromq-devel
+```
