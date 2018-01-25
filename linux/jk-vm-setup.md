@@ -69,6 +69,7 @@ re-login with `ssh jk@server_ip_address`
 ssh-keygen -t rsa
 cd
 vim .ssh/authorized_keys
+chmod 600 .ssh/authorized_keys
 
 ```
 
@@ -127,11 +128,12 @@ curl https://packages.microsoft.com/config/rhel/6/prod.repo > /etc/yum.repos.d/m
 exit
 sudo yum remove unixODBC-utf16 unixODBC-utf16-devel
 sudo ACCEPT_EULA=Y yum install msodbcsql
+sudo yum install unixODBC-devel  # required by pyodbc
 ```
 
 ### ZeroMQ
 
 ```bash
 sudo yum -y install zeromq
-sudo yum -y install zeromq-devel
+sudo yum -y install zeromq-devel  # required by zerorpc
 ```
