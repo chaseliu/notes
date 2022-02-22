@@ -131,6 +131,12 @@ sudo ACCEPT_EULA=Y yum install msodbcsql
 sudo yum install unixODBC-devel  # required by pyodbc
 ```
 
+### freetds Drive
+
+```bash
+sudo -y yum install freetds freetds-devel
+```
+
 ### ZeroMQ
 
 ```bash
